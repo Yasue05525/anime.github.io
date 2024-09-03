@@ -1,0 +1,75 @@
+max-width: 767px {
+    
+}
+
+pre {
+    background-color: #323232;
+    border-top-right-radius: 20px;
+    border: 1px solid #151515;
+    border-top: 3mm #38279d solid;
+    width: 300px;
+}
+
+code {
+    position: relative;
+    top: -10px;
+    left: -50px;
+    color: #9d9d9d;
+}
+
+body {
+    background-image: url(https://avatars.mds.yandex.net/i?id=87bd3682f2e336f24d186076cfbcb387_l-4579614-images-thumbs&n=13);
+    background-size: cover
+}
+        
+@media (max-width: 666px) {
+    body {
+        background-image: url(https://pushinka.top/uploads/posts/2023-04/1681619233_pushinka-top-p-kazutora-art-krasivo-1.jpg);
+        background-size: cover
+    }
+}
+        
+.highlighted {
+    display: inline-block;
+    color: #fff;
+        }
+        
+.black-transparent {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 10px;
+        }
+        
+#header h1 { padding: 20px; margin: 0; }
+        
+.div-1 {
+    margin: 1;
+    padding-top: 20px;
+}
+        
+.line-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+        
+.line {
+    width: 2px;
+    height: 50px;
+    background-color: #000;
+    margin: 10px 0;
+}
+        
+@media (max-width: 666px) {
+    .line-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+            
+    .line {
+        width: 50px;
+        height: 2px;
+        margin: 0 10px;
+    }
+}
