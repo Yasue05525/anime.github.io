@@ -1,18 +1,36 @@
-max-width: 767px {
-    
+body {
+    background-color: #000000;
+    margin: 0;
 }
 
-pre {
-    background-color: #323232;
-    border-top-right-radius: 20px;
-    border: 1px solid #151515;
-    border-top: 3mm #38279d solid;
-    width: 300px;
+h1 {
+    color: #ffffff;
 }
 
-code {
-    position: relative;
-    top: -10px;
-    left: -50px;
-    color: #9d9d9d;
+p {
+    color: #ffffff;
+    margin: 0;
+}
+
+.divi {
+    background-color: #494949;
+    display: flex; 
+    overflow-x: auto;
+    border-: 2px solid white;
+    box-shadow: inset 0px 0px 10px 4px yellow, 0px 0px 15px 4px yellow;
+    border-radius: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .divi {
+        flex-direction: row;
+    }
 }
