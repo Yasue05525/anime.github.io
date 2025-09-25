@@ -61,6 +61,7 @@ h1 {
     justify-content: center;
     background: #385d8a;
     padding: 0;
+    overflow-x: auto; /* Прокрутка для вкладок если не помещаются */
 }
 
 .tab {
@@ -72,6 +73,8 @@ h1 {
     flex: 1;
     text-align: center;
     transition: background 0.3s;
+    min-width: 120px; /* Минимальная ширина для вкладок */
+    white-space: nowrap; /* Запрет переноса текста */
 }
 
 .tab:hover {
@@ -85,6 +88,8 @@ input[type="radio"] {
 .content {
     padding: 30px;
     min-height: 400px;
+    max-height: 500px; /* Ограничение высоты контента */
+    overflow-y: auto; /* Прокрутка для контента */
 }
 
 .list {
@@ -94,14 +99,22 @@ input[type="radio"] {
 #tab1:checked ~ .content #list1,
 #tab2:checked ~ .content #list2,
 #tab3:checked ~ .content #list3,
-#tab4:checked ~ .content #list4 {
+#tab4:checked ~ .content #list4,
+#tab5:checked ~ .content #list5,
+#tab6:checked ~ .content #list6,
+#tab7:checked ~ .content #list7,
+#tab8:checked ~ .content #list8 { /* Добавлено правило для tab5 */
     display: block;
 }
 
 #tab1:checked ~ .tabs .tab[for="tab1"],
 #tab2:checked ~ .tabs .tab[for="tab2"],
 #tab3:checked ~ .tabs .tab[for="tab3"],
-#tab4:checked ~ .tabs .tab[for="tab4"] {
+#tab4:checked ~ .tabs .tab[for="tab4"],
+#tab5:checked ~ .tabs .tab[for="tab5"],
+#tab6:checked ~ .tabs .tab[for="tab6"],
+#tab7:checked ~ .tabs .tab[for="tab7"],
+#tab8:checked ~ .tabs .tab[for="tab8"] { /* Добавлено правило для tab5 */
     background: #2c4c76;
 }
 
@@ -145,14 +158,21 @@ li:hover {
     .tab {
         padding: 12px 15px;
         font-size: 16px;
+        min-width: 100px; /* Уменьшение минимальной ширины для мобильных */
     }
     
     .content {
         padding: 20px;
+        max-height: 400px; /* Уменьшение высоты контента для мобильных */
     }
     
     li {
         padding: 12px;
         font-size: 16px;
+    }
+    
+    .tabs {
+        flex-wrap: nowrap; /* Запрет переноса вкладок */
+        justify-content: flex-start; /* Выравнивание по левому краю */
     }
 }
