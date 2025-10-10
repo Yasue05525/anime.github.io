@@ -103,7 +103,8 @@ input[type="radio"] {
 #tab5:checked ~ .content #list5,
 #tab6:checked ~ .content #list6,
 #tab7:checked ~ .content #list7,
-#tab8:checked ~ .content #list8 { /* Добавлено правило для tab5 */
+#tab8:checked ~ .content #list8,
+#tab9:checked ~ .content #list9 { /* Добавлено правило для tab5 */
     display: block;
 }
 
@@ -114,7 +115,8 @@ input[type="radio"] {
 #tab5:checked ~ .tabs .tab[for="tab5"],
 #tab6:checked ~ .tabs .tab[for="tab6"],
 #tab7:checked ~ .tabs .tab[for="tab7"],
-#tab8:checked ~ .tabs .tab[for="tab8"] { /* Добавлено правило для tab5 */
+#tab8:checked ~ .tabs .tab[for="tab8"],
+#tab9:checked ~ .tabs .tab[for="tab9"]{ /* Добавлено правило для tab5 */
     background: #2c4c76;
 }
 
