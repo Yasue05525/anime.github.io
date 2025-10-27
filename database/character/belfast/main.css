@@ -5,7 +5,19 @@ body {
 .neon {
     background: #2b2b2b;
     font-size: 15px;
-    color: #ffffff;
+    color: #fff;
+}
+
+.neon {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #3f4a7d;
+    box-shadow: 0 0 10px #3f4a7d, inset 0 0 10px #3f4a7d;
+    text-shadow: 0 0 5px #3f4a7d;
+}
+
+.neon:hover {
+    box-shadow: 0 0 20px #3f4a7d, inset 0 0 20px #3f4a7d;
 }
 
 .neon:active {
@@ -53,17 +65,7 @@ button:hover {
 }
 
 /* Неоновый эффект для первой кнопки */
-.neon {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #00ffff;
-    box-shadow: 0 0 10px #00ffff, inset 0 0 10px #00ffff;
-    text-shadow: 0 0 5px #00ffff;
-}
 
-.neon:hover {
-    box-shadow: 0 0 20px #00ffff, inset 0 0 20px #00ffff;
-}
 
 /* Стили для скроллбара */
 .buttons-scroll-container::-webkit-scrollbar {
