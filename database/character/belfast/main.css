@@ -103,7 +103,7 @@ button:hover {
 @media (min-width: 768px) {
     body {
         background-color: #505050;
-        color: black;
+        color: red;
     }
 }
 
@@ -111,6 +111,6 @@ button:hover {
 @media (max-width: 767px) {
     body {
         background-color: #505050;
-        color: blue;
+        color: red;
     }
 }
