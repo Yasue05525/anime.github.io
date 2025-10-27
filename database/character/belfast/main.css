@@ -110,7 +110,7 @@ button:hover {
 /* Стили для экранов уже 768 пикселей (например, для мобильных телефонов) */
 @media (max-width: 767px) {
     body {
-        background-color: lightgray;
+        background-color: #505050;
         color: blue;
     }
 }
