@@ -11,13 +11,13 @@ body {
 .neon {
     background: transparent;
     color: #fff;
-    border: 2px solid #3f4a7d;
-    box-shadow: 0 0 10px #3f4a7d, inset 0 0 10px #3f4a7d;
-    text-shadow: 0 0 5px #3f4a7d;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff, inset 0 0 10px #00ffff;
+    text-shadow: 0 0 5px #00ffff;
 }
 
 .neon:hover {
-    box-shadow: 0 0 20px #3f4a7d, inset 0 0 20px #3f4a7d;
+    box-shadow: 0 0 20px #00ffff, inset 0 0 20px #00ffff;
 }
 
 .neon:active {
@@ -102,7 +102,7 @@ button:hover {
 /* Стили для экранов шире 768 пикселей (например, для компьютеров) */
 @media (min-width: 768px) {
     body {
-        background-color: white;
+        background-color: #505050;
         color: black;
     }
 }
