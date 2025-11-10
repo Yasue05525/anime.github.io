@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <button class="neon" onclick="window.open('https://yasue05525.github.io/anime.github.io/database/anime/azur_lane.html', '_blank')">Назад</button>
+    <button class="neon" onclick="window.open('', '_blank')">Подробнее</button>
+    <button class="neon">Профиль</button>
+    
+    <div class="buttons-scroll-container">
+        <div class="buttons-wrapper">
+            <button onclick="showImage('image1')">Honolulu (1)</button>
+            <button onclick="showImage('image2')">Honolulu: Umbrella Girl (2)</button>
+            <button onclick="showImage('image3')">Honolulu: Summer Accident (3)</button>
+            <button onclick="showImage('image4')">Honolulu: Manjuu Mischief (4)</button>
+            <button onclick="showImage('image5')">Honolulu: Among the Stalls (5)</button>
+        </div>
+    </div>
+    
+    <div class="content" id="contentBlock">
+        <h2 id="imageTitle">Картина</h2>
+        <img id="dynamicImage" src="" alt="Картина" style="display:none;">
+        <p id="imageDescription"></p>
+    </div>
+
+</body>
+</html>
