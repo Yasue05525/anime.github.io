@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Химические элементы</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Периодическая система химических элементов</h1>
+            <p>Д. И. Менделеева</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Поиск элемента...">
+            </div>
+            <div class="filter-container">
+                <select id="category-filter">
+                    <option value="all">Все категории</option>
+                    <option value="alkali">Щелочные металлы</option>
+                    <option value="alkaline-earth">Щёлочноземельные металлы</option>
+                    <option value="transition">Переходные металлы</option>
+                    <option value="post-transition">Постпереходные металлы</option>
+                    <option value="metalloid">Металлоиды</option>
+                    <option value="nonmetal">Неметаллы</option>
+                    <option value="halogen">Галогены</option>
+                    <option value="noble-gas">Благородные газы</option>
+                    <option value="lanthanide">Лантаноиды</option>
+                    <option value="actinide">Актиноиды</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="periodic-table" id="periodic-table">
+            <!-- Таблица будет сгенерирована с помощью JavaScript -->
+        </div>
+    </div>
+
+    <!-- Модальное окно для информации об элементе -->
+    <div id="element-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2 id="modal-name">Название элемента</h2>
+                <div class="modal-symbol" id="modal-symbol">Xx</div>
+            </div>
+            <div class="modal-body">
+                <div class="element-properties">
+                    <div class="property">
+                        <span class="property-label">Атомный номер:</span>
+                        <span class="property-value" id="modal-number">-</span>
+                    </div>
+                    <div class="property">
+                        <span class="property-label">Атомная масса:</span>
+                        <span class="property-value" id="modal-mass">-</span>
+                    </div>
+                    <div class="property">
+                        <span class="property-label">Категория:</span>
+                        <span class="property-value" id="modal-category">-</span>
+                    </div>
+                    <div class="property">
+                        <span class="property-label">Электронная конфигурация:</span>
+                        <span class="property-value" id="modal-config">-</span>
+                    </div>
+                    <div class="property">
+                        <span class="property-label">Год открытия:</span>
+                        <span class="property-value" id="modal-year">-</span>
+                    </div>
+                </div>
+                <div class="element-description" id="modal-description">
+                    Описание элемента появится здесь...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
