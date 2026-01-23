@@ -2,17 +2,148 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale=1.0, maximum-scale=1.0>
-    <title>Документация</title>
-    <link rel="stylesheet" href="main_anime.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магический интерфейс RPG-бота</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Магия для бота</h1>
-    <p>Магия огня: <a href="mc/fire.html">Нажми</a></p>
-    <p>Магия воды: (Обновление ждём)</p>
-    <p>Магия воздух: (Обновление ждём)</p>
-    <p>Магия земли: (Обновление ждём)</p>
-    <p>Магия бога: <a href="mc/god.html">Нажми</a></p>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-hat-wizard"></i> Магический интерфейс RPG</h1>
+            <p class="subtitle">Используйте заклинания с помощью элементов</p>
+        </header>
+
+        <div class="content">
+            <aside class="sidebar">
+                <h2><i class="fas fa-gem"></i> Элементы</h2>
+                <div class="elements-container">
+                    <div class="element active" data-element="all">
+                        <i class="fas fa-star"></i>
+                        <span>Все</span>
+                    </div>
+                    <div class="element" data-element="fire">
+                        <i class="fas fa-fire"></i>
+                        <span>Огонь</span>
+                    </div>
+                    <div class="element" data-element="water">
+                        <i class="fas fa-tint"></i>
+                        <span>Вода</span>
+                    </div>
+                    <div class="element" data-element="earth">
+                        <i class="fas fa-mountain"></i>
+                        <span>Земля</span>
+                    </div>
+                    <div class="element" data-element="air">
+                        <i class="fas fa-wind"></i>
+                        <span>Воздух</span>
+                    </div>
+                    <div class="element" data-element="spirit">
+                        <i class="fas fa-ghost"></i>
+                        <span>Дух</span>
+                    </div>
+                    <div class="element" data-element="divine">
+                        <i class="fas fa-hands-praying"></i>
+                        <span>Божественный</span>
+                    </div>
+                </div>
+                
+                <div class="mana-info">
+                    <h3><i class="fas fa-bolt"></i> Мана: <span id="mana-value">450</span>/500</h3>
+                    <div class="mana-bar">
+                        <div class="mana-fill" style="width: 90%;"></div>
+                    </div>
+                    <p class="mana-hint">Каждое заклинание расходует ману</p>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <h2><i class="fas fa-scroll"></i> Заклинания</h2>
+                <div class="spells-container">
+                    <div class="spell-card" data-element="divine">
+                        <div class="spell-header">
+                            <h3>1. Манипуляции материи (Бога)</h3>
+                            <span class="spell-cost"><i class="fas fa-bolt"></i> 120 маны</span>
+                        </div>
+                        <div class="spell-element divine">
+                            <i class="fas fa-hands-praying"></i> Божественный
+                        </div>
+                        <p class="spell-description">Позволяет изменять структуру материи на фундаментальном уровне, создавая или разрушая предметы.</p>
+                        <button class="cast-btn" data-spell="Манипуляции материи">Произнести</button>
+                    </div>
+                    
+                    <div class="spell-card" data-element="water">
+                        <div class="spell-header">
+                            <h3>2. Водяной шар (Вода)</h3>
+                            <span class="spell-cost"><i class="fas fa-bolt"></i> 30 маны</span>
+                        </div>
+                        <div class="spell-element water">
+                            <i class="fas fa-tint"></i> Вода
+                        </div>
+                        <p class="spell-description">Создает сферу сжатой воды, которая наносит урон при попадании в цель.</p>
+                        <button class="cast-btn" data-spell="Водяной шар">Произнести</button>
+                    </div>
+                    
+                    <div class="spell-card" data-element="fire">
+                        <div class="spell-header">
+                            <h3>3. Огненный шар (Огонь)</h3>
+                            <span class="spell-cost"><i class="fas fa-bolt"></i> 40 маны</span>
+                        </div>
+                        <div class="spell-element fire">
+                            <i class="fas fa-fire"></i> Огонь
+                        </div>
+                        <p class="spell-description">Выпускает шар пламени, который взрывается при контакте, нанося огненный урон по области.</p>
+                        <button class="cast-btn" data-spell="Огненный шар">Произнести</button>
+                    </div>
+                    
+                    <div class="spell-card" data-element="earth">
+                        <div class="spell-header">
+                            <h3>4. Каменная стена (Земля)</h3>
+                            <span class="spell-cost"><i class="fas fa-bolt"></i> 60 маны</span>
+                        </div>
+                        <div class="spell-element earth">
+                            <i class="fas fa-mountain"></i> Земля
+                        </div>
+                        <p class="spell-description">Призывает каменную преграду, которая блокирует атаки противника и может использоваться как укрытие.</p>
+                        <button class="cast-btn" data-spell="Каменная стена">Произнести</button>
+                    </div>
+                    
+                    <div class="spell-card" data-element="water">
+                        <div class="spell-header">
+                            <h3>5. Водяной дракон (Вода)</h3>
+                            <span class="spell-cost"><i class="fas fa-bolt"></i> 150 маны</span>
+                        </div>
+                        <div class="spell-element water">
+                            <i class="fas fa-tint"></i> Вода
+                        </div>
+                        <p class="spell-description">Призывает дракона из воды, который атакует врагов и наносит значительный урон водной стихии.</p>
+                        <button class="cast-btn" data-spell="Водяной дракон">Произнести</button>
+                    </div>
+                </div>
+                
+                <div class="cast-log">
+                    <h3><i class="fas fa-history"></i> История заклинаний</h3>
+                    <div class="log-content">
+                        <div class="log-entry">Инициализация магического интерфейса...</div>
+                        <div class="log-entry">Готов к использованию заклинаний!</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <footer class="footer">
+            <p>Магический интерфейс RPG-бота | Создано с <i class="fas fa-heart"></i> для аниме-стиля</p>
+        </footer>
+    </div>
+
+    <div class="spell-cast-animation" id="spellAnimation">
+        <div class="animation-content">
+            <div class="spell-name" id="spellName"></div>
+            <div class="spell-effects"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
