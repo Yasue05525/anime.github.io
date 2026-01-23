@@ -1,0 +1,436 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #f0f0f0;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #aaa;
+    font-weight: 300;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.sidebar {
+    flex: 1;
+    min-width: 250px;
+    background: rgba(20, 15, 45, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.sidebar h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ff7e5f;
+    border-bottom: 2px solid rgba(255, 126, 95, 0.5);
+    padding-bottom: 10px;
+}
+
+.elements-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.element:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.element.active {
+    background: rgba(255, 126, 95, 0.2);
+    border: 1px solid rgba(255, 126, 95, 0.5);
+    box-shadow: 0 0 15px rgba(255, 126, 95, 0.3);
+}
+
+.element i {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.element span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Цвета для элементов */
+.element[data-element="fire"] i {
+    color: #ff4500;
+}
+
+.element[data-element="water"] i {
+    color: #1e90ff;
+}
+
+.element[data-element="earth"] i {
+    color: #8b4513;
+}
+
+.element[data-element="air"] i {
+    color: #87ceeb;
+}
+
+.element[data-element="spirit"] i {
+    color: #9370db;
+}
+
+.element[data-element="divine"] i {
+    color: #ffd700;
+}
+
+.element[data-element="all"] i {
+    color: #ff7e5f;
+}
+
+.mana-info {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.mana-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #6a5acd;
+}
+
+.mana-bar {
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.mana-fill {
+    height: 100%;
+    background: linear-gradient(to right, #1e90ff, #00bfff);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.mana-hint {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-align: center;
+}
+
+.main-content {
+    flex: 3;
+    min-width: 300px;
+}
+
+.main-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #ff7e5f;
+    border-bottom: 2px solid rgba(255, 126, 95, 0.5);
+    padding-bottom: 10px;
+}
+
+.spells-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.spell-card {
+    background: rgba(30, 25, 60, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.spell-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.spell-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.spell-header h3 {
+    font-size: 1.3rem;
+    margin-right: 10px;
+    color: #f0f0f0;
+}
+
+.spell-cost {
+    background: rgba(30, 144, 255, 0.3);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #87ceeb;
+}
+
+.spell-element {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.spell-element.fire {
+    background: rgba(255, 69, 0, 0.2);
+    color: #ff7e5f;
+    border: 1px solid rgba(255, 69, 0, 0.5);
+}
+
+.spell-element.water {
+    background: rgba(30, 144, 255, 0.2);
+    color: #87ceeb;
+    border: 1px solid rgba(30, 144, 255, 0.5);
+}
+
+.spell-element.earth {
+    background: rgba(139, 69, 19, 0.2);
+    color: #d2b48c;
+    border: 1px solid rgba(139, 69, 19, 0.5);
+}
+
+.spell-element.divine {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+}
+
+.spell-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.cast-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cast-btn:hover {
+    background: linear-gradient(to right, #ff6b47, #fea366);
+    box-shadow: 0 0 15px rgba(255, 126, 95, 0.5);
+    transform: scale(1.05);
+}
+
+.cast-log {
+    background: rgba(20, 15, 45, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.cast-log h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ff7e5f;
+}
+
+.log-content {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.footer i {
+    color: #ff7e5f;
+    margin: 0 5px;
+}
+
+/* Анимация произнесения заклинания */
+.spell-cast-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.spell-cast-animation.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.animation-content {
+    text-align: center;
+    padding: 40px;
+    background: rgba(30, 25, 60, 0.95);
+    border-radius: 20px;
+    border: 3px solid rgba(255, 126, 95, 0.7);
+    box-shadow: 0 0 50px rgba(255, 126, 95, 0.5);
+    max-width: 500px;
+    width: 90%;
+}
+
+.spell-name {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ff7e5f;
+    text-shadow: 0 0 10px rgba(255, 126, 95, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+    
+    .elements-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .spells-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .sidebar, .main-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .elements-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .spell-header {
+        flex-direction: column;
+    }
+    
+    .spell-cost {
+        margin-top: 10px;
+    }
+}
