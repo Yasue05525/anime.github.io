@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Земные Миры - Аниме Вселенная</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Аниме-фон -->
+    <div class="anime-background">
+        <div class="stars"></div>
+        <div class="planet-float" id="planet1"></div>
+        <div class="planet-float" id="planet2"></div>
+        <div class="planet-float" id="planet3"></div>
+        <div class="cherry-blossom"></div>
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Хедер -->
+        <header class="anime-header">
+            <div class="logo">
+                <i class="fas fa-globe-asia"></i>
+                <h1>Земные <span class="highlight">Миры</span></h1>
+            </div>
+            <p class="subtitle">Исследуйте удивительные планеты в аниме-вселенной</p>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="anime-nav">
+            <ul>
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="#"><i class="fas fa-compass"></i> Исследования</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> Энциклопедия</a></li>
+                <li><a href="#"><i class="fas fa-user-astronaut"></i> Команда</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Настройки</a></li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main>
+            <!-- Баннер -->
+            <section class="hero-banner">
+                <div class="hero-content">
+                    <h2>Откройте <span class="anime-text">Аналоги Земли</span></h2>
+                    <p>Планеты, которые могут стать новым домом для человечества в далёком будущем</p>
+                    <button class="anime-btn">Начать Путешествие <i class="fas fa-rocket"></i></button>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-earth">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Карточки планет -->
+            <section class="planets-section">
+                <h2 class="section-title"><i class="fas fa-star"></i> Известные Экзопланеты</h2>
+                
+                <div class="planets-grid">
+                    <!-- Планета 1 -->
+                    <div class="planet-card" data-planet="kepler-452b">
+                        <div class="planet-icon" style="background: linear-gradient(135deg, #ff9a9e, #fad0c4);">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Кеплер-452b</h3>
+                        <p class="planet-desc">"Земля 2.0" - планета в обитаемой зоне солнцеподобной звезды</p>
+                        <div class="planet-stats">
+                            <span><i class="fas fa-sun"></i> 1400 световых лет</span>
+                            <span><i class="fas fa-weight-hanging"></i> 1.6 массы Земли</span>
+                        </div>
+                        <button class="planet-btn">Подробнее <i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Планета 2 -->
+                    <div class="planet-card" data-planet="proxima-b">
+                        <div class="planet-icon" style="background: linear-gradient(135deg, #a1c4fd, #c2e9fb);">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3>Проксима Центавра b</h3>
+                        <p class="planet-desc">Ближайшая к нам экзопланета в обитаемой зоне красного карлика</p>
+                        <div class="planet-stats">
+                            <span><i class="fas fa-sun"></i> 4.24 световых года</span>
+                            <span><i class="fas fa-weight-hanging"></i> 1.3 массы Земли</span>
+                        </div>
+                        <button class="planet-btn">Подробнее <i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Планета 3 -->
+                    <div class="planet-card" data-planet="trappist-1e">
+                        <div class="planet-icon" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>TRAPPIST-1e</h3>
+                        <p class="planet-desc">Каменная планета в системе из семи планет у ультрахолодной звезды</p>
+                        <div class="planet-stats">
+                            <span><i class="fas fa-sun"></i> 39 световых лет</span>
+                            <span><i class="fas fa-weight-hanging"></i> 0.7 массы Земли</span>
+                        </div>
+                        <button class="planet-btn">Подробнее <i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Планета 4 -->
+                    <div class="planet-card" data-planet="teegarden-b">
+                        <div class="planet-icon" style="background: linear-gradient(135deg, #d4fc79, #96e6a1);">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Тигарден b</h3>
+                        <p class="planet-desc">Потенциально обитаемая планета с высоким индексом подобия Земле</p>
+                        <div class="planet-stats">
+                            <span><i class="fas fa-sun"></i> 12 световых лет</span>
+                            <span><i class="fas fa-weight-hanging"></i> 1.1 массы Земли</span>
+                        </div>
+                        <button class="planet-btn">Подробнее <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Информационная панель -->
+            <section class="info-panel">
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Технологии поиска</h3>
+                        <p>Используются современные методы обнаружения: транзитный метод, метод лучевых скоростей и микролинзирование</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Колонизация</h3>
+                        <p>Планы по освоению ближайших землеподобных планет уже разрабатываются ведущими космическими агентствами</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Поиск жизни</h3>
+                        <p>Анализ атмосфер экзопланет на наличие биосигнатур: кислорода, метана, водяного пара</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Футер -->
+        <footer class="anime-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>Земные Миры</h3>
+                    <p>Исследование космоса в аниме-стиле</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Разделы</h4>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Все планеты</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Галактическая карта</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Новости науки</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Форумы</a>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Социальные сети</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="copyright">© 2023 Земные Миры. Вселенная аниме-исследований</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Скрипт для анимаций -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация кнопок
+            const buttons = document.querySelectorAll('.anime-btn, .planet-btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Анимация карточек планет
+            const planetCards = document.querySelectorAll('.planet-card');
+            planetCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+                
+                // Клик по карточке
+                card.addEventListener('click', function() {
+                    const planet = this.getAttribute('data-planet');
+                    alert(`Вы выбрали планету: ${this.querySelector('h3').textContent}`);
+                });
+            });
+            
+            // Анимация звездного неба
+            function createStar() {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                document.querySelector('.stars').appendChild(star);
+            }
+            
+            // Создаем звезды
+            for (let i = 0; i < 100; i++) {
+                createStar();
+            }
+        });
+    </script>
+</body>
+</html>
