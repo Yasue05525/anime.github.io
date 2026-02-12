@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Карта созвездий</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>✨ Звёздный атлас</h1>
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Найти созвездие..." autocomplete="off">
+            </div>
+        </header>
+
+        <main>
+            <div class="star-map-container">
+                <div class="star-map" id="starMap">
+                    <!-- Звёзды и созвездия будут отрисованы через CSS -->
+                </div>
+                <div class="map-overlay">
+                    <div class="constellation-info" id="constellationInfo">
+                        <h2 id="selectedConstellation">Выберите созвездие</h2>
+                        <p id="constellationDescription"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="constellations-list">
+                <h3>Все созвездия <span id="constellationCount"></span></h3>
+                <div class="list-grid" id="constellationGrid"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>🌟 Карта мира созвездий | 88 официальных созвездий</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
