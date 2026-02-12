@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cosmic-bg: linear-gradient(145deg, #0b0e1a 0%, #1a1f30 100%);
+    --star-color: #fffde7;
+    --constellation-line: rgba(100, 200, 255, 0.3);
+    --card-bg: rgba(20, 30, 50, 0.7);
+    --accent: #7ec8ff;
+    --text-primary: #f0f4ff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--cosmic-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(10, 15, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(126, 200, 255, 0.5);
+    letter-spacing: 4px;
+}
+
+/* Search */
+.search {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+}
+
+.search input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(126, 200, 255, 0.3);
+}
+
+/* Star Map */
+.star-map-container {
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, #0a0e1a, #03050a);
+    border-radius: 30px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.star-map {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/1;
+    background-image: 
+        radial-gradient(2px 2px at 15% 30%, white, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 25% 45%, white, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 35% 60%, #fffde7, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 45% 20%, white, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 55% 75%, #ffe68f, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 65% 35%, white, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 75% 55%, white, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 85% 25%, #ffd700, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 20% 80%, white, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40% 90%, white, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 60% 15%, #b0e0ff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 80% 70%, white, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 95% 45%, white, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 5% 65%, white, rgba(0,0,0,0));
+    background-size: 200% 200%;
+    opacity: 0.9;
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(10, 15, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid rgba(126, 200, 255, 0.3);
+}
+
+.constellation-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+/* Constellations List */
+.constellations-list {
+    background: rgba(15, 20, 35, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.constellations-list h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    color: #b8e2ff;
+}
+
+.list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.constellation-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    backdrop-filter: blur(5px);
+}
+
+.constellation-card:hover {
+    background: rgba(126, 200, 255, 0.15);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.constellation-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: white;
+}
+
+.constellation-card p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .app {
+        padding: 0.5rem;
+    }
+    
+    .star-map-container {
+        padding: 1rem;
+    }
+    
+    .list-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.7rem;
+    }
+    
+    .constellation-card {
+        padding: 0.8rem;
+    }
+    
+    .constellation-card h4 {
+        font-size: 1rem;
+    }
+}
+
+/* Анимация звезд */
+@keyframes twinkle {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.star-map {
+    animation: twinkle 4s infinite;
+}
