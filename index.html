@@ -1,63 +1,349 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale=1.0, maximum-scale=1.0>
-    <title>RA | Menu</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Чёрный Клевер | Grimoire World</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0a0f1a 0%, #0c111e 100%);
+      font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Roboto', sans-serif;
+      color: #f0f3fa;
+      line-height: 1.5;
+      padding: 20px 16px 60px;
+    }
+
+    /* контейнер для десктоп+мобайл */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: rgba(12, 20, 30, 0.55);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    /* шапка */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid #2a2f3f;
+      padding-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: 2.3rem;
+      background: linear-gradient(135deg, #E6D475, #A5690C);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .hero p {
+      color: #b9c7d9;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #1f2a3e;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 12px;
+      border-left: 3px solid #e6b422;
+    }
+
+    /* панель навигации по разделам */
+    .nav-sections {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+    .nav-btn {
+      background: #141c2c;
+      border: none;
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 60px;
+      color: #cfdfed;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .nav-btn.active {
+      background: linear-gradient(95deg, #b87c1e, #e6b422);
+      color: #0a0e1a;
+      box-shadow: 0 6px 14px rgba(230, 180, 34, 0.3);
+    }
+    .nav-btn:hover:not(.active) {
+      background: #1f2b3f;
+      color: #ffe1a0;
+    }
+
+    /* секции карточек */
+    .section {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+    .section.active-section {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* карточка универсальная */
+    .card {
+      background: rgba(18, 26, 38, 0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 1.6rem;
+      padding: 1.2rem 1.2rem 1.4rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(230, 180, 52, 0.3);
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #e6b422;
+      box-shadow: 0 20px 28px -12px rgba(230,180,34,0.2);
+    }
+    .card h3 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .card h3 span {
+      background: #1f2f3c;
+      font-size: 0.75rem;
+      font-weight: 400;
+      padding: 2px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+    .card .type-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: #2c3a2e;
+      padding: 4px 10px;
+      border-radius: 18px;
+      margin: 8px 0 6px;
+    }
+    .card p {
+      color: #cbd9ed;
+      font-size: 0.9rem;
+      margin: 10px 0;
+    }
+    .card .meta {
+      font-size: 0.75rem;
+      color: #bda46b;
+      border-top: 1px dashed #2a3648;
+      margin-top: 12px;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    hr {
+      border-color: #2d374b;
+      margin: 12px 0;
+    }
+
+    /* футер */
+    .footer-note {
+      text-align: center;
+      margin-top: 2.8rem;
+      font-size: 0.8rem;
+      color: #6c7a91;
+      border-top: 1px solid #20273a;
+      padding-top: 1.5rem;
+    }
+
+    /* мобильная оптимизация */
+    @media (max-width: 640px) {
+      body {
+        padding: 12px 12px 40px;
+      }
+      .container {
+        padding: 1rem 0.9rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .nav-btn {
+        padding: 6px 18px;
+        font-size: 0.85rem;
+      }
+      .card h3 {
+        font-size: 1.3rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Red Anarchy</h1>
-            <p>Энциклопедия смешанной информации</p>
-        </header>
+<div class="container">
+  <div class="hero">
+    <h1>⚔️ Чёрный Клевер ⚔️</h1>
+    <p>Магия • Гильдии • Королевства • Гримуары</p>
+    <div class="badge">✦ Истинный магический рыцарь ✦</div>
+  </div>
 
-        <main class="main">
-            <div class="section">
-                <h2>🎌 База аниме</h2>
-                <a href="database/anime.html" class="link">Аниме персонажи</a>
-                <span class="soon">Список комиксы (Скоро)</span>
-                <span class="soon">Черный клевер (Скоро)</span>
-            </div>
+  <div class="nav-sections">
+    <button class="nav-btn" data-section="magic">📖 Список Магии</button>
+    <button class="nav-btn" data-section="guild">🛡️ Список Гильдий</button>
+    <button class="nav-btn" data-section="kingdom">👑 Королевства</button>
+    <button class="nav-btn" data-section="grimoire">📘 Гримуары</button>
+  </div>
 
-            <div class="section">
-                <h2>📚 Обучение</h2>
-                <a href="tutol.html" class="link">Туториалы</a>
-            </div>
-
-            <div class="section">
-                <h2>🤖 Бот и магия</h2>
-                <a href="rule.html" class="link">Правила группы</a>
-                <a href="duc_commadn/command.html" class="link">Команды бота</a>
-                <a href="magic/magic.html" class="link">Элементы магии (Рп)</a>
-            </div>
-
-            <div class="section">
-                <h2>💬 Беседы и сетка</h2>
-                <a href="gazik/gazimagomed.html" class="link">Газимагомед</a>
-                <a href="setka.html" class="link">Правила сетки</a>
-            </div>
-
-            <div class="section">
-                <h2>🔭 Наука</h2>
-                <a href="astro/index.html" class="link">Астрономия</a>
-                <span class="soon">Религия (Скоро)</span>
-                <span class="soon">Мифология (Скоро)</span>
-                <span class="soon">Древняя (Скоро)</span>
-                <a href="chemistry/element.html" class="link">Химия</a>
-                <span class="soon">Искусственный Интеллект и IT (Скоро)</span>
-                <span class="soon">Философия (Скоро)</span>
-                <span class="soon">Психология (Скоро)</span>
-            </div>
-        </main>
-
-        <footer class="footer">
-            <img src="https://steamuserimages-a.akamaihd.net/ugc/779621541562802076/43BE3E7D4223EDE454ACCCE7658F598B99F14515/?imw=512&amp;imh=218&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true" 
-                 alt="Red Anarchy" 
-                 class="footer-img">
-            <p>Версия сайта (Beta 0.007)</p>
-        </footer>
+  <!-- РАЗДЕЛ МАГИЯ -->
+  <div id="magic-section" class="section">
+    <h2 style="margin-bottom: 1.2rem;">✨ Типы магии & известные пользователи</h2>
+    <div class="grid-cards">
+      <div class="card"><h3>⚡ Магия Тьмы <span>Аста/Yami</span></h3><p>Анти-магия + Теневой клинок. Уничтожает любые чары, сочетание тьмы и анти-энергии.</p><div class="meta"><span>🔮 Ранг: Королевский</span><span>⚔️ Ями Сукехиро</span></div></div>
+      <div class="card"><h3>🔥 Магия Огня <span>Фуэголеон</span></h3><p>Могущественное пламя алого льва, способное испепелить противника.</p><div class="meta"><span>🔥 Саламандра</span><span>🔥 Мереолеона</span></div></div>
+      <div class="card"><h3>🍃 Магия Ветра <span>Юно</span></h3><p>Дух ветра Сильф. Скорость, режущие атаки и защита ветром.</p><div class="meta"><span>🌪️ Дух ветра</span><span>⭐ Кандидат в Магикороли</span></div></div>
+      <div class="card"><h3>💧 Магия Воды <span>Ноэль</span></h3><p>Управление водой, создание морских драконов. Защита и атака.</p><div class="meta"><span>🐉 Валькирия</span><span>💎 Королевские чародеи</span></div></div>
+      <div class="card"><h3>🧠 Магия Зеркала <span>Гауше</span></h3><p>Отражение атак, создание копий, оптические иллюзии.</p><div class="meta"><span>🪞 Блеск</span><span>✨ Хитрый маг</span></div></div>
+      <div class="card"><h3>🌿 Магия Стали <span>Маркс/Техника</span></h3><p>Превращение тела и окружения в сталь. Непробиваемая защита.</p><div class="meta"><span>⚙️ Закалённый</span><span>🛡️ Орка</span></div></div>
+      <div class="card"><h3>🌀 Магия Кости <span>Люмиэль/Зайцы</span></h3><p>Создание оружия и доспехов из костей (редкий тип).</p><div class="meta"><span>☠️ Древний род</span><span>🦴 Эльфийский след</span></div></div>
+      <div class="card"><h3>⚜️ Световая Магия <span>Патри/Лихт</span></h3><p>Сверхскоростные лучи, ослепление, чистое божественное сияние.</p><div class="meta"><span>✨ Абсолютная атака</span><span>🌞 Первый маг-король</span></div></div>
     </div>
+  </div>
+
+  <!-- РАЗДЕЛ ГИЛЬДИИ (отряды магических рыцарей) -->
+  <div id="guild-section" class="section">
+    <h2 style="margin-bottom: 1.2rem;">🛡️ 9 отрядов Королевских магических рыцарей</h2>
+    <div class="grid-cards">
+      <div class="card"><h3>🐉 Чёрный Бык <span>Black Bull</span></h3><p>Самый безумный, но сильнейший отряд. Капитан — Ями Сукехиро. Члены: Аста, Ноэль, Финрал, Лаки, Ванесса и др.</p><div class="meta"><span>⭐ База: руины</span><span>🤪 Эксцентричность</span></div></div>
+      <div class="card"><h3>🦁 Золотой Рассвет <span>Golden Dawn</span></h3><p>Элита магии. Капитан — Уильям Вендженс. Сильнейшие маги, включая Юно, Клауса, Мирай.</p><div class="meta"><span>🏆 Лучший отряд</span><span>🌬️ Власть ветра</span></div></div>
+      <div class="card"><h3>🦅 Алый Лев <span>Crimson Lion</span></h3><p>Отряд пламени. Капитан — Фуэголеон Вермиллион. Сила и честь.</p><div class="meta"><span>🔥 Мереолеона</span><span>♨️ Лидеры огня</span></div></div>
+      <div class="card"><h3>💜 Фиолетовая Орхидея <span>Purple Orca</span></h3><p>Жесткие дисциплины, бывший капитан Гелдр Пуансо.</p><div class="meta"><span>⚔️ Военная тактика</span><span>🐋 Морские спецоперации</span></div></div>
+      <div class="card"><h3>🟢 Зелёный Мантикора <span>Green Mantis</span></h3><p>Легкие на подъем воины, капитан Джек Зëррих.</p><div class="meta"><span>🌪️ Режущие клинки</span><span>🌿 Стихийная поддержка</span></div></div>
+      <div class="card"><h3>🧱 Синий Розарий <span>Blue Rose</span></h3><p>Женский отряд, капитан Шарлотта Розей.</p><div class="meta"><span>🌹 Шипы и честь</span><span>💙 Битва с проклятием</span></div></div>
+      <div class="card"><h3>🌙 Серебряный Орёл <span>Silver Eagle</span></h3><p>Аристократический отряд, капитан Нойзель Сильва.</p><div class="meta"><span>⚡ Водная магия</span><span>💎 Гордость королевства</span></div></div>
+      <div class="card"><h3>🌲 Корона Ада <span>Coral Peacock</span></h3><p>Цветочный стиль, капитан Дороти Андстром (миры снов).</p><div class="meta"><span>🦚 Иллюзия сна</span><span>🌀 Непредсказуемость</span></div></div>
+      <div class="card"><h3>🌟 Паучий Лилейник <span>Spider Lily</span></h3><p>малоизвестный, но мощный отряд обороны королевства.</p><div class="meta"><span>🕷️ скрытая угроза</span><span>🌺 тайное правосудие</span></div></div>
+    </div>
+  </div>
+
+  <!-- РАЗДЕЛ КОРОЛЕВСТВА -->
+  <div id="kingdom-section" class="section">
+    <h2 style="margin-bottom: 1rem;">🏰 Ключевые королевства мира Clover</h2>
+    <div class="grid-cards">
+      <div class="card"><h3>🍀 Королевство Клевер <span>Clover Kingdom</span></h3><p>Главное место действия. 4 листа клевера — удача, редко 5 листов — демонический гримуар. Столица — Королевская столица.</p><div class="meta"><span>👑 Маг-Король: Юлиус Новахрон</span><span>🏰 9 отрядов</span></div></div>
+      <div class="card"><h3>❄️ Королевство Бриллиант <span>Diamond Kingdom</span></h3><p>Враги Клевера, генетические эксперименты. Сильнейшие воины: Лот, Брока, Марс.</p><div class="meta"><span>💎 Жестокая иерархия</span><span>⚙️ Магические солдаты</span></div></div>
+      <div class="card"><h3>🐉 Королевство Сердце <span>Heart Kingdom</span></h3><p>Магия духов природы. Принцесса Лолопечика, стражи элементалей: Ундина, Саламандра, Гном и Сильф.</p><div class="meta"><span>🌊 Водная магия</span><span>🌺 Мирная элита</span></div></div>
+      <div class="card"><h3>🌪️ Королевство Шипа <span>Spade Kingdom</span></h3><p>Тёмная троица, демоны, морозные земли. Главные антагонисты — Дзено, Ваника, Данте.</p><div class="meta"><span>❄️ Ледяные равнины</span><span>👿 Одолевшие демонов</span></div></div>
+      <div class="card"><h3>✨ Земля Солнца <span>Sun Land / Ями родина</span></h3><p>Загадочная восточная страна, родина Ями. Отличные самурайские техники.</p><div class="meta"><span>⚔️ Кимоно катаны</span><span>🌅 сокрытая земля</span></div></div>
+    </div>
+  </div>
+
+  <!-- РАЗДЕЛ ГРИМУАРЫ (ХЗ) но сделаем эпично -->
+  <div id="grimoire-section" class="section">
+    <h2 style="margin-bottom: 1rem;">📖 Гримуары — источник магической силы</h2>
+    <div class="grid-cards">
+      <div class="card"><h3>📘 5-листный Гримуар <span>Аста</span></h3><p>Гримуар Дьявола с анти-магией. Тёмные клинки, уничтожение любых заклинаний. Черные обложки с четырьмя листами клевера и пятым демоническим.</p><div class="meta"><span>🔥 Лихт ➜ Аста</span><span>⚔️ Анти-магия</span></div></div>
+      <div class="card"><h3>🍃 4-листный Гримуар Ветра <span>Юно</span></h3><p>Трёхлистный + удача. Гримуар с духом Сильф. Способен создавать штормовую магию высшего класса.</p><div class="meta"><span>🌪️ Аэробласт</span><span>💨 Королевский уровень</span></div></div>
+      <div class="card"><h3>💧 Гримуар Воды <span>Ноэль Сильва</span></h3><p>Синий гримуар с водной стихией, позднее развивает магию Валькирии и морского дракона.</p><div class="meta"><span>🐉 Дочь королевской семьи</span><span>⚡ Крепость щитов</span></div></div>
+      <div class="card"><h3>🌑 Гримуар Теней <span>Ями Сукехиро</span></h3><p>Тёмный гримуар, позволяющий резать пространство, манипуляция тьмой. Техника: "Тёмный клинок — Равнозначный разрез".</p><div class="meta"><span>🌌 Измерение разреза</span><span>🗡️ Капитан Чёрных Быков</span></div></div>
+      <div class="card"><h3>🪞 Зеркальный Гримуар <span>Гауше Адлай</span></h3><p>Способен создавать зеркальную магию, отражение, световые лазеры и клонирование.</p><div class="meta"><span>✨ Мультикопия</span><span>🪄 Эгоцентричный гений</span></div></div>
+      <div class="card"><h3>🌀 Гримуар Кости <span>Земон (Spade)</span></h3><p>Редчайший тип гримуара, управление костной массой, невероятное оружие из тела.</p><div class="meta"><span>💀 Дьявольская сила</span><span>🦴 Древнее проклятье</span></div></div>
+      <div class="card"><h3>⚜️ Светлый Гримуар <span>Лихт/Патри</span></h3><p>Гримуар, испускающий божественный свет. Символ эльфийской магии.</p><div class="meta"><span>✨ Священный луч</span><span>🌿 эльфийский первопредок</span></div></div>
+      <div class="card"><h3>🏔️ Гримуар Льда + Копья <span>Дзено</span></h3><p>Дьявольский гримуар с магией костей и пространства, повелитель времени в битвах.</p><div class="meta"><span>❄️ Король Шипа</span><span>👑 Темная троица</span></div></div>
+    </div>
+    <p style="margin-top: 1rem; font-style: italic; background: #101826; padding: 10px; border-radius: 28px; text-align: center;">✨ Гримуар пробуждается в 15 лет — магическая книга, определяющая судьбу✨</p>
+  </div>
+
+  <div class="footer-note">
+    <p>© Чёрный Клевер • Энциклопедия поклонника • Все данные вдохновлены аниме и мангой | адаптивный дизайн для любого устройства</p>
+  </div>
+</div>
+
+<script>
+  // навигация по разделам
+  const sections = {
+    magic: document.getElementById('magic-section'),
+    guild: document.getElementById('guild-section'),
+    kingdom: document.getElementById('kingdom-section'),
+    grimoire: document.getElementById('grimoire-section')
+  };
+
+  const buttons = document.querySelectorAll('.nav-btn');
+
+  function activateSection(sectionId) {
+    // спрятать все секции
+    Object.values(sections).forEach(sec => {
+      if (sec) sec.classList.remove('active-section');
+    });
+    // показать текущую
+    if (sections[sectionId]) {
+      sections[sectionId].classList.add('active-section');
+    }
+    // обновить активную кнопку
+    buttons.forEach(btn => {
+      const btnSection = btn.getAttribute('data-section');
+      if (btnSection === sectionId) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // добавить обработчики кнопкам
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const sectionName = btn.getAttribute('data-section');
+      if (sectionName && sections[sectionName]) {
+        activateSection(sectionName);
+      }
+    });
+  });
+
+  // по умолчанию включить первый раздел (Магия)
+  if (sections.magic) activateSection('magic');
+  else {
+    // запасной вариант
+    const firstKey = Object.keys(sections)[0];
+    if(firstKey) activateSection(firstKey);
+  }
+
+  // маленький эффект для карточек: анимация появления при переключении остается, уже красиво
+  // плюс для мобильных комфортное пролистывание
+  // также адаптивность жесткая в стилях
+</script>
 </body>
 </html>
