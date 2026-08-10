@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог звезд и экзопланет</title>
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="search-container">
+        <h1 class="galaxy-title">M 1</h1>
+        
+        <input type="text" id="searchInput" placeholder="Поиск звезды по названию..." onkeyup="filterStars()">
+    </div>
+
+    <div class="grid-container" id="starGrid"></div>
+
+    <!-- Модальное окно (оно же всплывашка) -->
+    <div class="modal-overlay" id="starModal">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-title">
+                <span class="modal-star-circle" id="modalColorCircle"></span>
+                <span id="modalStarName">Название звезды</span>
+            </div>
+            <div class="modal-subtitle" id="modalSpectralClass">Спектральный класс: G2V</div>
+            
+            <h4 style="margin-top:20px; margin-bottom:10px;">🪐 Экзопланеты:</h4>
+            <ul class="exoplanet-list" id="modalExoplanetList">
+                <li class="no-planets-msg">Нет данных об экзопланетах</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Подключаем JS в самом конце -->
+    <script src="script.js"></script>
+</body>
+</html>
