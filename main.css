@@ -1,3 +1,5 @@
+/* main.css — Прозрачные блоки с кнопками */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,117 +7,266 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0a0a0a;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    
+    background-image: url('https://sun9-1.userapi.com/s/v1/ig2/jbqhcT2Vm5kieUULp0BDsVr-omxpJlNu1-21ztqXdXoim1LbDHqbrQAMauJyGhdOett7YLB1RD7-FjNbILlzMg_9.jpg?quality=95&as=32x52,48x78,72x117,108x175,160x260,240x390,360x585,480x780,540x877,640x1040&from=bu&cs=640x0');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
     color: #ffffff;
     line-height: 1.6;
-    padding: 20px;
+}
+
+/* Затемнение фона */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 0;
 }
 
 .container {
-    max-width: 800px;
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    width: 100%;
     margin: 0 auto;
+    background: transparent;
+    padding: 30px 35px 25px;
 }
 
-/* Header */
+/* ========================================
+   🔥 ГЛИТЧ-ЗАГОЛОВОК
+   ======================================== */
+
+.glitch-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #ff2e6b;
+    text-shadow: 0 0 30px rgba(255, 30, 80, 0.4);
+    margin-bottom: 6px;
+    position: relative;
+    display: inline-block;
+}
+
+.glitch-title::before,
+.glitch-title::after {
+    content: '✦ Red Anarchy ✦';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.glitch-title::before {
+    color: #00ffea;
+    text-shadow: 0 0 10px #00ffea;
+    animation: glitchLeft 2s infinite;
+}
+
+.glitch-title::after {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+    animation: glitchRight 2.5s infinite;
+}
+
+@keyframes glitchLeft {
+    0% { transform: translate(0); opacity: 0; }
+    2% { transform: translate(-5px, 2px); opacity: 0.8; }
+    4% { transform: translate(0); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes glitchRight {
+    0% { transform: translate(0); opacity: 0; }
+    10% { transform: translate(5px, -2px); opacity: 0.7; }
+    12% { transform: translate(0); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.glitch-title:hover {
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* ===== ХЕДЕР ===== */
 .header {
     text-align: center;
-    margin-bottom: 40px;
-    padding: 20px 0;
-    border-bottom: 2px solid #333;
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    color: #ff4444;
-    margin-bottom: 10px;
+    margin-bottom: 32px;
+    padding: 16px 0 22px;
+    border-bottom: 2px solid rgba(255, 80, 130, 0.15);
+    background: transparent;
 }
 
 .header p {
-    color: #999;
-    font-size: 1.1rem;
+    color: #e8d0dc;
+    font-size: 1.15rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-/* Main content */
+/* ========================================
+   🟤 БЛОКИ СТАЛИ ПРОЗРАЧНЫМИ
+   ======================================== */
+
 .main {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    margin-bottom: 40px;
+    gap: 14px;
+    margin-bottom: 30px;
 }
 
 .section {
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 20px;
+    /* ⚠️ БЛОК СТАЛ ПРОЗРАЧНЫМ */
+    background: rgba(30, 15, 25, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 14px 20px 16px;
+    border-left: 4px solid rgba(255, 46, 107, 0.3);
+    
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    background: rgba(30, 15, 25, 0.3);
+    border-left-color: #ff6b9d;
 }
 
 .section h2 {
-    color: #ff4444;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
+    color: #ffb3c6;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-bottom: 2px solid rgba(255, 100, 150, 0.15);
+    padding-bottom: 4px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-/* Links */
+/* ===== ГРУППА КНОПОК ===== */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    align-items: center;
+}
+
+/* ===== КНОПКИ ===== */
 .link {
-    display: block;
-    color: #4fa8ff;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.8px;
     text-decoration: none;
-    padding: 8px 0;
-    margin: 5px 0;
-    border-left: 3px solid transparent;
-    padding-left: 10px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    
+    background: rgba(255, 40, 80, 0.12);
+    border: 1.5px solid rgba(255, 80, 130, 0.2);
+    color: #f0dce8;
+    cursor: pointer;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .link:hover {
-    color: #ff4444;
-    border-left-color: #ff4444;
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255, 60, 110, 0.25);
+    border-color: #ff6b9d;
+    box-shadow: 0 8px 30px rgba(255, 30, 80, 0.15);
+    color: #ffffff;
 }
 
+/* ===== "СКОРО" ===== */
 .soon {
-    display: block;
-    color: #666;
-    padding: 8px 0;
-    padding-left: 10px;
-    font-style: italic;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(200, 150, 170, 0.08);
+    color: #b89aab;
+    cursor: default;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Footer */
+.soon:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0b8c8;
+}
+
+/* ===== ФУТЕР ===== */
 .footer {
     text-align: center;
-    padding: 30px 0;
-    border-top: 2px solid #333;
+    padding: 20px 0 6px;
+    border-top: 1px solid rgba(255, 200, 220, 0.06);
+    background: transparent;
 }
 
-.footer-img {
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 5px;
+.footer a {
+    color: #dcc0ce;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 28px;
+    border-radius: 60px;
+    border: 1px solid rgba(255, 150, 200, 0.08);
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    background: rgba(255, 255, 255, 0.03);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-.footer p {
-    color: #666;
-    font-size: 0.9rem;
+.footer a:hover {
+    background: rgba(255, 80, 150, 0.08);
+    border-color: #ff6b9d;
+    color: #ffd9e6;
+    transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    body {
-        padding: 15px;
-    }
-    
-    .header h1 {
-        font-size: 2rem;
-    }
-    
-    .section {
-        padding: 15px;
-    }
-    
-    .footer-img {
-        max-width: 250px;
-    }
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+    body { padding: 12px; }
+    .container { padding: 15px; }
+    .glitch-title { font-size: 2.5rem; letter-spacing: 3px; }
+    .link, .soon { padding: 6px 14px; font-size: 0.9rem; }
+    .section h2 { font-size: 1.2rem; }
+    .section { padding: 12px 14px 14px; }
 }
+
+@media (max-width: 480px) {
+    .container { padding: 10px; }
+    .glitch-title { font-size: 1.8rem; letter-spacing: 2px; }
+    .header p { font-size: 0.9rem; }
+    .link, .soon { padding: 5px 10px; font-size: 0.8rem; }
+    .section h2 { font-size: 1rem; }
+    .section { padding: 10px 12px 12px; }
+    .footer a { padding: 6px 14px; font-size: 0.85rem; }
+    }
