@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог звезд и экзопланет</title>
-    <!-- Подключаем CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <div class="search-container">
         <h1 class="galaxy-title">M 1</h1>
-        
         <input type="text" id="searchInput" placeholder="Поиск звезды по названию..." onkeyup="filterStars()">
     </div>
 
     <div class="grid-container" id="starGrid"></div>
 
-    <!-- Модальное окно (оно же всплывашка) -->
+    <!-- ОКНО №1: Список планет звезды -->
     <div class="modal-overlay" id="starModal">
         <div class="modal-window">
             <button class="modal-close" onclick="closeModal()">✕</button>
+            
             <div class="modal-title">
                 <span class="modal-star-circle" id="modalColorCircle"></span>
                 <span id="modalStarName">Название звезды</span>
@@ -34,7 +33,30 @@
         </div>
     </div>
 
-    <!-- Подключаем JS в самом конце -->
+    <!-- ОКНО №2: Подробная информация о планете -->
+    <div class="modal-overlay" id="planetModal">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closePlanetModal()">✕</button>
+            
+            <div class="planet-header">
+                <div class="planet-icon" id="planetIcon"></div>
+                <div>
+                    <h2 id="planetName" style="margin: 0 0 5px 0;">Название планеты</h2>
+                    <div id="planetType" style="color: #666; font-size: 14px;">Тип: Каменистая</div>
+                </div>
+            </div>
+
+            <h4 style="margin-top:20px; margin-bottom:10px;">📋 Подробная информация:</h4>
+            <div id="planetInfo" style="background: #f8f9fa; padding: 15px; border-radius: 10px; line-height: 1.6; color: #333;">
+                <!-- Инфа подгрузится через JS -->
+            </div>
+
+            <div style="margin-top: 20px;">
+                <a href="#" id="planetLink" target="_blank" class="exoplanet-link-btn" style="width: 100%; text-align: center;">Открыть статью</a>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
