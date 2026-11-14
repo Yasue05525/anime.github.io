@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глобан — список | Red Anarchy</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body { min-height:100vh; align-items:flex-start; }
+        .ban-container {
+            position:relative; z-index:1; width:100%; max-width:820px;
+            margin:24px auto; padding:34px;
+            color:#fff; background:rgba(10,5,18,.88);
+            border:1px solid rgba(255,150,200,.14); border-radius:26px;
+            box-shadow:0 25px 70px rgba(0,0,0,.7);
+            backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+        }
+        .ban-container h1 { text-align:center; color:#ff477d; font-size:2.2rem; margin-bottom:10px; }
+        .intro { text-align:center; color:#f2dce5; margin-bottom:24px; }
+        .notice { padding:14px 17px; border-left:4px solid #ff477d; border-radius:10px; background:rgba(255,50,100,.12); color:#ffe5ed; line-height:1.6; }
+        .ban-entry { margin-top:18px; padding:20px; border:1px solid rgba(255,120,160,.22); border-radius:16px; background:rgba(255,255,255,.055); }
+        .ban-entry h2 { color:#ff9fbd; font-size:1.2rem; margin-bottom:10px; }
+        .ban-entry p { color:#f3eaf0; line-height:1.7; overflow-wrap:anywhere; }
+        .ban-entry a { color:#ff9fbd; }
+        .empty { margin-top:20px; padding:24px 16px; text-align:center; color:#d9c5cf; border:1px dashed rgba(255,150,200,.25); border-radius:14px; }
+        .back { display:block; width:max-content; max-width:100%; margin:26px auto 0; padding:10px 24px; border:1px solid rgba(255,150,200,.25); border-radius:50px; color:#ffe1eb; text-decoration:none; background:rgba(255,50,100,.12); }
+        @media(max-width:600px) { .ban-container { margin:8px auto; padding:23px 15px; } .ban-container h1 { font-size:1.65rem; } }
+    </style>
+</head>
+<body>
+    <main class="ban-container">
+        <h1>✦ Глобан — список ✦</h1>
+        <p class="intro">Список пользователей, внесённых в реестр нарушений правил сети Red Anarchy.</p>
+        <div class="notice">
+            <strong>Важно:</strong> записи публикуются администрацией проекта. Наличие записи означает решение администрации сети, а не блокировку аккаунта со стороны ВКонтакте.
+        </div>
+
+        <!--
+        КАК ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ:
+        Скопируй блок ниже, вставь его после notice и замени данные.
+
+        <article class="ban-entry">
+            <h2>Имя пользователя</h2>
+            <p><strong>Профиль VK:</strong> <a href="https://vk.com/id123456" target="_blank" rel="noopener noreferrer">vk.com/id123456</a></p>
+            <p><strong>Причина:</strong> описание нарушения правил сетки</p>
+            <p><strong>Дата добавления:</strong> 15.11.2026</p>
+        </article>
+        -->
+
+        <div class="empty">На данный момент список пуст.</div>
+
+        <a class="back" href="index.html">← Вернуться на главную</a>
+    </main>
+</body>
+</html>
